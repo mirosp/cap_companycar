@@ -1,0 +1,6 @@
+id,brand,model,startDate,endDate,fuel,power,powerUnit,price,currency_code,employee_UserID
+fa0cd120-7392-408f-8e5e-06fb1bebd68d,Volvo,XC-60,2021-01-01,2025-12-31,Diesel,136,Kw,62000,EUR,101
+fa0cd120-7392-408f-8e5e-06fb1bebd68f,Volvo,V90 CC,2021-01-01,2025-12-31,Diesel,148,Kw,68000,EUR,102
+fa0cd120-7392-408f-8e5e-06fb1bebd68e,Nissan,Qashqai,2021-01-01,2025-12-31,Diesel,96,Kw,26000,EUR,103
+fa0cd120-7392-408f-8e5e-06fb1bebd681,Audi,A4 ,2021-01-01,2025-12-31,Petrol,114,Kw,38000,EUR,104
+

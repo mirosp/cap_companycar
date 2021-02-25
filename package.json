@@ -7,12 +7,54 @@
   "private": true,
   "dependencies": {
     "@sap/cds": "^4",
-    "express": "^4"
-  },
-  "devDependencies": {
+    "@sap/cds-odata-v2-adapter-proxy": "^1.5.4",
+    "@sap/odm": "^2.0.0",
+    "@sap/xsenv": "^3.1.0",
+    "@sap/xssec": "^3.0.10",
+    "cdse": "^1.1.1",
+    "copyfiles": "^2.4.1",
+    "express": "^4",
+    "passport": "^0.4.1",
     "sqlite3": "5.0.0"
   },
+  "devDependencies": {
+    "@sap/ux-specification": "^1.84.4"
+  },
   "scripts": {
-    "start": "cds run"
-  }
+    "watch": "cds watch",
+    "start": "cds run",
+    "start:mock": "cds run --with-mocks --in-memory",
+    "build": "cds build/all --clean",
+    "openapi": "cds compile srv --service all -o docs --to openapi --openapi:diagram",
+    "mbt:build": "mbt build",
+    "cf:target:dev": "cf target -o stzh-launchpad-dev -s dev",
+    "cf:deploy:srv": "cf deploy mta_archives/stzh-rfcm_1.0.0.mtar -m stzh-rfcm-srv",
+    "cf:deploy:ui": "cf deploy mta_archives/stzh-rfcm_1.0.0.mtar -m stzh-rfcm_ui_deployer",
+    "cf:deploy": "cf deploy mta_archives/stzh-rfcm_1.0.0.mtar",
+    "cf:undeploy": "cf undeploy stzh-rfcm --delete-services --delete-service-keys"
+  },
+  "cds": {
+    "requires": {
+      "uaa": {
+        "kind": "xsuaa"
+      },
+      "auth": {
+        "[production]": {
+          "strategy": "JWT"
+        }
+      },
+      "db": {
+        "kind": "sql",
+        "[production]": {
+          "kind": "sqlite",
+          "credentials": {
+            "database": "srv/sqlite.db"
+          }
+        }
+      }
+    }
+  },
+  "sapux": [
+    "app\\companycar_app"
+  ]
 }

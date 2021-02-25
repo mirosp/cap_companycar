@@ -7,9 +7,10 @@ using {
 namespace company.cars;
 
 type status : String enum {
-    completed;
-    processing;
+    new;
+    asigned;
     blocked;
+    free;
 }
 
 entity CompanyCars : cuid, managed {
@@ -23,6 +24,7 @@ entity CompanyCars : cuid, managed {
         Electric;
     };
     power     : Integer;
+    powerUnit : String;
     price     : Integer;
     currency  : Currency;
     employee  : Association to Employees;
@@ -40,3 +42,9 @@ entity Employees {
                           on cars.employee = $self;
 
 }
+
+// value help
+define view brand as
+    select from CompanyCars distinct {
+        key brand
+    };
