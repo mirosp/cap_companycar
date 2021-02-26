@@ -1,2 +1,1 @@
-
-using from './companycar_app\annotations';
+using from '../../cap_companycar/srv\CompanyCars-fiori';

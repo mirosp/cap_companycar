@@ -6,9 +6,13 @@ service CompanyCar @(path : '/CompanyCar') {
     entity CompanyCars as projection on my.CompanyCars;
 
     @readonly : true
-    entity Employees   as projection on my.Employees;
+    entity Employees   as projection on my.Employees {
+        * , cars : redirected to CompanyCars
+    };
+    @readonly : true
+    entity brands as projection on my.brands;
 
-    // @readonly : true
+        // @readonly : true
     // entity Planet          as projection on StarWars.Planet;
 
     // @readonly : true
@@ -21,7 +25,7 @@ service CompanyCar @(path : '/CompanyCar') {
     // entity Vehicles        as projection on StarWars.Vehicles;
 
     // entity Film2People     as projection on StarWars.Film2People {
-    //     * , people : redirected to People, film : redirected to Film
+    //     * , people : redirected to People, 
     // };
 
     // entity Film2Planets    as projection on StarWars.Film2Planets {
@@ -39,8 +43,4 @@ service CompanyCar @(path : '/CompanyCar') {
     // entity Film2Vehicles   as projection on StarWars.Film2Vehicles {
     //     * , film : redirected to Film
     // };
-
-    @readonly : true
-    entity brand as projection on my.brand;
-
 }
