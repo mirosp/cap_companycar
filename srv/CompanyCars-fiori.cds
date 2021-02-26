@@ -38,7 +38,11 @@ annotate srv.CompanyCars with @(
                 $Type             : 'UI.DataField',
                 Value             : price,
                 ![@UI.Importance] : #High
-            }
+            },
+            {
+                $Type             : 'UI.DataField',
+                Value             : currency.symbol
+            },
         ],
         PresentationVariant : {
             $Type     : 'UI.PresentationVariantType',
